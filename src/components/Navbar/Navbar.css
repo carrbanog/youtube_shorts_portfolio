@@ -1,0 +1,35 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+li{
+  list-style: none;
+  font-size: 20px;
+  padding: 10px;
+}
+a{
+  text-decoration: none;
+  color: #fff;
+}
+.navbar{
+  background-color: black;
+  color: #fff;
+  border-bottom: 1px solid #fff;
+  margin-bottom: 50px;
+}
+
+.navbar-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-container .left-icon ul a{
+  display: flex;
+}
+
+.navbar-container .right-icon ul{
+  display: flex;
+}
