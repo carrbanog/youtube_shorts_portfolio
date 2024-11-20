@@ -1,0 +1,86 @@
+a{
+  text-decoration: none;
+}
+.title {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 30px;
+  font-weight: 600;
+  color: #ccc;
+  letter-spacing: 0.5px;
+  display: inline-flex; /* 글자를 가로로 나란히 배치 */
+}
+
+.title span {
+  display: inline-block;
+  color: #ccc; /* 초기 색상 */
+  transition: color 0.3s ease; /* 색상 전환 효과 */
+}
+
+/* 마우스 올렸을 때 애니메이션 실행 */
+.title:hover span {
+  animation: textColorChange 0.3s forwards;
+  animation-delay: calc(var(--delay) * 0.2s);
+}
+
+/* 딜레이 설정 */
+.title span:nth-child(1) { --delay: 0; }
+.title span:nth-child(2) { --delay: 1; }
+.title span:nth-child(3) { --delay: 2; }
+.title span:nth-child(4) { --delay: 3; }
+.title span:nth-child(5) { --delay: 4; }
+.title span:nth-child(6) { --delay: 5; }
+.title span:nth-child(7) { --delay: 6; }
+
+/* 애니메이션 정의 */
+@keyframes textColorChange {
+  0% {
+    color: #ccc; /* 초기 색상 */
+  }
+  100% {
+    color: #ff6600; /* 주황색으로 변경 */
+  }
+}
+.navbar-container {
+  display: flex;
+  justify-content: space-between; /* 양 끝 배치 */
+  align-items: center;
+  border-radius: 10px;
+  /* background-color: red; */
+  margin-bottom: 20px;
+}
+
+.left-icon ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column; /* 로고와 제목 세로 배치 */
+  align-items: flex-start; /* 텍스트 왼쪽 정렬 */
+  gap: 5px;
+}
+
+.left-icon li {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333333; /* 어두운 텍스트 */
+  transition: color 0.3s ease;
+}
+
+.right-icon ul {
+  list-style: none;
+  display: flex;
+  gap: 15px; /* 아이콘 간 간격 */
+}
+
+.right-icon li {
+  font-size: 24px;
+  color: #333333;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.right-icon li:hover {
+  color: #ff6600; /* 마우스 오버시 색상 변경 */
+}
+
+.right-icon li:active {
+  transform: scale(1.1); /* 클릭 시 아이콘 커지기 */
+}

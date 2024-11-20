@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import { fetchVideos, fetchTopicVideos } from "../../api/api";
 import { VideoContext } from "../../VideoContext/VideoContext";
-import "./Main.css";
+import "./Main2.css";
 import { Link } from "react-router-dom";
 
 const Main = () => {
@@ -16,8 +16,8 @@ const Main = () => {
   //api파일을 통해서 영상 받아오기
   useEffect(() => {
     const loadRecommendedVdieos = async () => {
-      const recommendedVideoData = await fetchVideos();
-      console.log(recommendedVideoData);
+      const recommendedVideoData = await fetchVideos("abcd");
+      // console.log(recommendedVideoData);
       // console.log(changeMainVideo);
       setMainVideos(recommendedVideoData);
     };

@@ -1,0 +1,144 @@
+.main {
+  background-color: #f9f9f9; /* 메인 배경색 */
+}
+
+.main .recommededVideo,
+.main .topicVideo {
+  margin-bottom: 40px; /* 섹션 간 간격 추가 */
+  border-radius: 10px; /* 섹션 박스 모서리 둥글게 */
+  padding: 20px; /* 내부 여백 추가 */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* 섹션 박스 그림자 */
+}
+
+.main .recommededVideo {
+  background-color: #ffffff; /* 추천영상 배경색 */
+}
+
+.main .topicVideo {
+  background-color: #f3f6ff; /* 게임영상 배경색 */
+}
+
+.main .recommededVideo h2,
+.main .topicVideo h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333; /* 제목 색상 */
+  border-bottom: 2px solid #ddd; /* 제목 아래 구분선 */
+  padding-bottom: 10px;
+  margin: 5px
+}
+
+.main .recommededVideo h2 {
+  color: #ff6600; /* 추천영상 제목 색상 */
+}
+
+.main .topicVideo h2 {
+  color: #ff6600; /* 게임영상 제목 색상 */
+}
+
+.main .recommededVideo .recommendedList,
+.main .topicVideo .topicList {
+  display: flex;
+  flex-wrap: nowrap; /* 영상들을 한 줄로 배치 */
+  gap: 20px; /* 영상들 사이 간격 */
+  overflow-x: auto; /* 수평 스크롤바 추가 */
+  padding: 10px 0 20px 0; /* 스크롤바가 겹치지 않도록 여백 추가 */
+  align-items: center;
+}
+
+/* 공통 썸네일 박스 */
+.main .recommededVideo .recommendedList .box,
+.main .topicVideo .topicList .box {
+  box-sizing: border-box;
+  height: 320px;
+  width: 180px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
+.main .recommededVideo .recommendedList .box img,
+.main .topicVideo .topicList .box img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.main .recommededVideo .recommendedList .box:hover,
+.main .topicVideo .topicList .box:hover {
+  transform: scale(1.05); /* 마우스 올렸을 때 확대 */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* 확대되며 그림자 추가 */
+}
+/* 커스터마이징된 스크롤바 */
+.main .recommededVideo .recommendedList::-webkit-scrollbar,
+.main .topicVideo .topicList::-webkit-scrollbar {
+  height: 8px; /* 스크롤바 높이 설정 */
+  width: 8px; /* 세로 스크롤바의 너비 */
+}
+
+.main .recommededVideo .recommendedList::-webkit-scrollbar-thumb,
+.main .topicVideo .topicList::-webkit-scrollbar-thumb {
+  background-color: #ff6600; /* 스크롤바 thumb 색상 */
+  border-radius: 10px; /* 둥근 모서리 */
+  transition: background-color 0.3s ease; /* 배경색 변화 효과 */
+}
+
+.main .recommededVideo .recommendedList::-webkit-scrollbar-thumb:hover,
+.main .topicVideo .topicList::-webkit-scrollbar-thumb:hover {
+  background-color: #e65c00; /* 마우스 올리면 색상 변경 */
+}
+
+.main .recommededVideo .recommendedList::-webkit-scrollbar-track,
+.main .topicVideo .topicList::-webkit-scrollbar-track {
+  background-color: #f0f0f0; /* 스크롤바 배경 색상 */
+  border-radius: 10px; /* 둥근 모서리 */
+}
+
+
+@media (max-width: 768px) {
+  .main .recommededVideo,
+  .main .topicVideo {
+    padding: 15px; /* 패딩을 줄여서 화면에 맞게 */
+  }
+
+  .main .recommededVideo .recommendedList,
+  .main .topicVideo .topicList {
+    display: flex;
+    flex-direction: column; /* 세로로 쌓이도록 변경 */
+    overflow-x: visible; /* 수평 스크롤 없애기 */
+    gap: 20px; /* 영상 간 간격을 20px로 설정 */
+    align-items: center; /* 영상들을 세로로 중앙 정렬 */
+    justify-content: center; /* 세로 및 가로 모두 중앙 정렬 */
+  }
+
+  .main .recommededVideo .recommendedList .box,
+  .main .topicVideo .topicList .box {
+    width: 95%; /* 썸네일 크기를 95%로 키움 */
+    height: auto; /* 비율에 맞게 높이 자동 조정 */
+    display: flex;
+    justify-content: center; /* 영상 자체가 가로로 중앙 정렬 */
+    margin: 0 auto; /* 영상 박스를 수평으로 중앙 정렬 */
+  }
+
+  .main .recommededVideo .recommendedList .box img,
+  .main .topicVideo .topicList .box img {
+    width: 100%; /* 썸네일 이미지를 박스에 맞게 채움 */
+    height: auto; /* 비율에 맞게 높이 자동 조정 */
+    object-fit: cover;
+    object-position: center;
+  }
+
+  h2 {
+    font-size: 20px; /* 모바일 화면에서 글자 크기 줄임 */
+    margin-bottom: 20px; /* 제목 간격을 더 넓힘 */
+    text-align: center; /* 제목도 중앙 정렬 */
+  }
+}
+
+/* 태블릿 화면 (최대 1024px) */

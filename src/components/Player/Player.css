@@ -1,7 +1,8 @@
 
 body{
 }
-.player{
+
+.player, .topicPlayer{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,12 +15,15 @@ body{
 .iframe-container{
   display: flex;
   justify-content: center;
+  align-items: center;
+  position: relative;
   width: 100%;
 }
 
 .player iframe{
-  width: 360px;
-  height: 640px;
+  width: 450px;
+  height: 800px;
+  border: none;
 }
 
 .player .button svg{
@@ -28,7 +32,40 @@ body{
   background-color: #fff;
   cursor: pointer;
   transition: all 0.5s;
+  margin: 8px;
 }
+
+.likeButton{
+  position: absolute;
+  top: 85%;
+  right: 660px;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.likeButton.liked{
+  color: #ff6600;
+}
+
+
+
 .player .button svg:hover{
   transform: scale(1.2);
+}
+
+@media (min-width: 760px) and (max-width: 1024px) {
+  .likeButton {
+    right: 100px;
+  }
+}
+@media (max-width: 750px){
+  .player iframe{
+    width: 360px;
+    height: 640px;
+  }
+  .likeButton{
+    top: 100%;
+    right: 50px;
+  }
 }

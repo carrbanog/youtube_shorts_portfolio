@@ -1,5 +1,5 @@
 import React from "react";
-import "./Navbar.css";
+import "./Navbar2.css";
 import { Link } from "react-router-dom";
 import { FaList, FaUser } from "react-icons/fa";
 
@@ -8,12 +8,19 @@ const Navbar = () => {
     <div className="navbar">
       <div className="navbar-container">
         <nav className="left-icon">
-          <ul>
-            <Link to="/">
-              <li>Logo</li>
-              <li>Title</li>
-            </Link>
-          </ul>
+          <Link to="/">
+            <ul>
+              <div class="title">
+                <span>K</span>
+                <span>i</span>
+                <span>u</span>
+                <span>T</span>
+                <span>u</span>
+                <span>b</span>
+                <span>e</span>
+              </div>
+            </ul>
+          </Link>
         </nav>
         <nav className="right-icon">
           <ul>

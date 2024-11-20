@@ -21,7 +21,7 @@ export const goToPrevVideoFunction = (currentIndex, videos) => {
 }
 
 //url에서 videoId가 변하면 videoId를 서버에 전송
-export const postWatchedVideo = async (user_id, video_id) => {
+export const postWatchedVideo = async (user_id, video_id, category) => {
   try {
     const response = await fetch("http://192.168.123.152:3000/api/watched", {
       method: "POST",
@@ -31,6 +31,31 @@ export const postWatchedVideo = async (user_id, video_id) => {
       body: JSON.stringify({
         video_id: video_id,
         user_id: user_id,
+        category: category
+      }),
+    });
+
+    if (!response.ok) {
+      console.error("Failed to send watched video data:", response.status);
+    } else {
+      console.log("Watched video data sent successfully");
+    }
+  } catch (error) {
+    console.error("Error sending watched video data:", error);
+  }
+};
+
+export const postLikedVideo = async (user_id, video_id, category) => {
+  try {
+    const response = await fetch("http://192.168.123.152:3000/api/videos/like", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        video_id: video_id,
+        user_id: user_id,
+        category: category
       }),
     });
 

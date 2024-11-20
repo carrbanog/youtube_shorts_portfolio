@@ -4,10 +4,12 @@ import axios from 'axios';
 const API_BASE_URL = 'http://localhost:3000/api';
 
 // 비디오 목록을 가져오는 함수
-export const fetchVideos = async () => {
+export const fetchVideos = async (userId) => {
   try {
     // console.log("fetch함수 실행")
-    const response = await axios.get(`http://192.168.123.152:3000/api/videos/random`);
+    const response = await axios.get(`http://192.168.123.152:3000/api/videos/random`, {
+      params: {user_id:userId}
+    })
     if (!response.data || response.data.length === 0) {
       throw new Error("No videos found.");
     }
@@ -26,7 +28,7 @@ export const fetchTopicVideos = async (category) => {
     const response = await axios.post('http://192.168.123.152:3000/api/videos/new', {
       category: category,
     });
-    console.log(response)
+    // console.log(response)
     if (!response.data || response.data.length === 0) {
       throw new Error("No videos found.");
     }

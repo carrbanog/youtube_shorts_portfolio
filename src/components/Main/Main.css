@@ -20,6 +20,7 @@ html, body{
   display: flex;
   flex-direction: column;
   gap: 45px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* 추천영상 */
