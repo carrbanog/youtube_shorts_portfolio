@@ -32,8 +32,8 @@ const NextPlayer = () => {
 
   const goToPrevTopicVideo = () => {
     if (moveCurrentIndex !== null && mainVideos[moveCurrentIndex]) {
-      const prevVideoId = mainVideos[moveCurrentIndex].video_id;
-      navigate(`/videoplay/recommended/${prevVideoId}`);
+      const prevVideoId = mainVideos[moveCurrentIndex].video_id; //이전 영상 id받아오기
+      navigate(`/videoplay/recommended/${prevVideoId}`); //이전 영상으로 이동
     } else {
       console.error("Invalid moveCurrentIndex or mainVideos is undefined");
     }
