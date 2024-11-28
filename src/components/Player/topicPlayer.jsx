@@ -42,7 +42,7 @@ const TopicPlayer = () => {
   const currentIndex = topicVideos.findIndex(
     (video) => video.video_id === videoId
   );
-  // console.log(topicVideos);
+  console.log(topicVideos);
 
   const goToPreviousVideo = () => {
     const previousVideo = goToPrevVideoFunction(currentIndex, topicVideos);
@@ -83,16 +83,43 @@ const TopicPlayer = () => {
     console.log(selectedVideo.category, videoId);
     postLikedVideo("topic", videoId, selectedVideo.category);
   };
+  
   if (loading) {
     <div className="loading">
       <p>Loading...</p>
     </div>;
   }
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      switch (event.key) {
+        case "ArrowUp":
+          event.preventDefault(); // 기본 동작(스크롤 방지) 막기
+          goToPreviousVideo();
+          break;
+        case "ArrowDown":
+          event.preventDefault();
+          goToNextVideo();
+          break;
+        default:
+          break;
+      }
+    };
+
+    // 키보드 이벤트 리스너 추가
+    window.addEventListener("keydown", handleKeyDown);
+
+    // 컴포넌트 언마운트 시 리스너 제거
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [currentIndex, topicVideos, videoId]);
+
   return (
     <div className="player">
-      <div className="button" onClick={goToPreviousVideo}>
+      {/* <div className="button" onClick={goToPreviousVideo}>
         <FaArrowUp />
-      </div>
+      </div> */}
       <div className="iframe-container">
         <iframe
           src={`https://www.youtube.com/embed/${videoId}?autoplay=1`}
@@ -106,9 +133,9 @@ const TopicPlayer = () => {
           <FaHeart />
         </button>
       </div>
-      <div className="button" onClick={goToNextVideo}>
+      {/* <div className="button" onClick={goToNextVideo}>
         <FaArrowDown />
-      </div>
+      </div> */}
     </div>
   );
 };

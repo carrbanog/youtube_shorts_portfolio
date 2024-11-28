@@ -1,3 +1,4 @@
+import axios from 'axios';
 
 //다음 영상 버튼 함수
 export const goToNextVideoFunction = (currentIndex, videos) => {
@@ -47,7 +48,7 @@ export const postWatchedVideo = async (user_id, video_id, category) => {
 
 export const postLikedVideo = async (user_id, video_id, category) => {
   try {
-    const response = await fetch("http://192.168.123.152:3000/api/videos/like", {
+    const response = await fetch("http://192.168.123.152:3000/api/likes", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -66,5 +67,21 @@ export const postLikedVideo = async (user_id, video_id, category) => {
     }
   } catch (error) {
     console.error("Error sending watched video data:", error);
+  }
+};
+
+export const postGraph = async () => {
+  try {
+    // console.log("fetch함수 실행")
+    const response = await axios.get(`http://192.168.123.152:3000/api/aggregate/abcd`);
+    // if (!response.data || response.data.length === 0) {
+    //   throw new Error("No videos found.");
+    // }
+    console.log(response);
+    return response.data; // 데이터를 반환
+  } catch (error) {
+    // 오류가 발생한 경우 에러 메시지를 던짐
+    console.log(error)
+    throw new Error(error.response?.data?.message || 'Failed to fetch videos');
   }
 };

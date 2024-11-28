@@ -13,7 +13,7 @@ export const fetchVideos = async (userId) => {
     if (!response.data || response.data.length === 0) {
       throw new Error("No videos found.");
     }
-    console.log(response);
+    // console.log(response);
     return response.data; // 데이터를 반환
   } catch (error) {
     // 오류가 발생한 경우 에러 메시지를 던짐
@@ -32,7 +32,7 @@ export const fetchTopicVideos = async (category) => {
     if (!response.data || response.data.length === 0) {
       throw new Error("No videos found.");
     }
-
+    // console.log(response.data.length)
     return response.data; // 데이터를 반환
   } catch (error) {
     console.error("Error fetching videos for category:", error);

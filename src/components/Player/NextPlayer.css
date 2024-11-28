@@ -1,8 +1,4 @@
-
-body{
-}
-
-.player, .topicPlayer, .nextPlayer{
+.nextPlayer{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -20,13 +16,25 @@ body{
   width: 100%;
 }
 
-.player iframe, .nextPlayer iframe{
+.nextPlayer iframe{
   width: 450px;
   height: 800px;
   border: none;
 }
 
-.player .button svg, .nextPlayer .button svg{
+/* .player-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+/* .button{
+  border: none;
+  background: none;
+} */
+
+
+.nextPlayer .button svg{
   font-size: 20px;
   border: none;
   background-color: #fff;
@@ -47,27 +55,12 @@ body{
 .likeButton.liked{
   color: #ff6600;
 }
-.right{
+
+.nextPlayer-container .button svg{
+  font-size: 20px;
+  border: none;
+  background-color: #fff;
   cursor: pointer;
-}
-
-
-.player .button svg:hover, .nextPlayer .button svg:hover{
-  transform: scale(1.2);
-}
-
-@media (min-width: 760px) and (max-width: 1024px) {
-  .likeButton {
-    right: 100px;
-  }
-}
-@media (max-width: 750px){
-  .player iframe{
-    width: 360px;
-    height: 640px;
-  }
-  .likeButton{
-    top: 100%;
-    right: 50px;
-  }
+  transition: all 0.5s;
+  margin: 8px;
 }

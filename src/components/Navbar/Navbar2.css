@@ -40,6 +40,10 @@ a{
     color: #ff6600; /* 주황색으로 변경 */
   }
 }
+.logo img{
+  width: 100px;
+  height: auto;
+}
 .navbar-container {
   display: flex;
   justify-content: space-between; /* 양 끝 배치 */
@@ -49,11 +53,12 @@ a{
   margin-bottom: 20px;
 }
 
+
 .left-icon ul {
   list-style: none;
   display: flex;
   flex-direction: column; /* 로고와 제목 세로 배치 */
-  align-items: flex-start; /* 텍스트 왼쪽 정렬 */
+  align-items: flex-start;
   gap: 5px;
 }
 
